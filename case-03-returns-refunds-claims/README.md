@@ -4,7 +4,7 @@
 
 This case study covers Business/System Analysis of returns, refunds, and claims management in an enterprise e-commerce environment.
 
-The case is intended to explore business processes, Business Rules, roles and responsibilities, state transitions, exception handling, data, auditability, and operational requirements when these areas are justified by discovered business needs and accepted decisions.
+The case explores business processes, Business Rules, roles and responsibilities, state transitions, exception handling, data, auditability, and operational requirements when these areas are justified by discovered business needs and accepted decisions.
 
 Analytical and technical artifacts are created progressively and only when supported by established context, accepted decisions, or justified analytical need.
 
@@ -14,7 +14,7 @@ Analytical and technical artifacts are created progressively and only when suppo
 
 The analyst is responsible for structuring business and system knowledge, identifying process and rule dependencies, coordinating cross-role clarification, maintaining consistency across requirements and specifications, and preserving end-to-end traceability.
 
-Business policy, architecture, implementation, security, data, and operational decisions remain with their appropriate decision owners.
+Business policy, architecture, implementation, security, data, and operational decisions remain with their appropriate Decision Owners.
 
 ## Current Status
 
@@ -26,6 +26,6 @@ No business or system requirements, Business Rules, process models, roles and pe
 
 ## Case Workspace
 
-Case-specific analytical materials will be added incrementally as the analysis progresses.
+Case-specific analytical materials will be added progressively as analysis establishes a justified need.
 
-The workspace will evolve according to the portfolio Working Model, Analyst Delivery Lifecycle, Artifact Coverage Matrix, Localization Policy, and Tooling Baseline.
+Analytical work follows the Portfolio Working Model, Analyst Delivery Lifecycle, Artifact Coverage Matrix, Localization Policy, and Tooling Baseline.

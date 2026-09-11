@@ -2,180 +2,195 @@
 
 ## Purpose
 
-This document defines the approved workstation and toolset used across
-the Business/System Analysis Portfolio.
+This document defines the approved workstation, collaboration platforms,
+modeling tools, specification standards, verification utilities, data
+technologies, runtime infrastructure, and automation capabilities
+available to support the Business/System Analysis Portfolio.
 
-The baseline describes why each tool or standard is used, what
-analytical activity it supports, and what artifact or verification
-evidence it may produce.
+The baseline separates two independent questions:
 
-Presence in this baseline does not require use in every case.
+1.  **Environment Status** — whether a tool is available, configured, or
+    practically verified.
+2.  **Usage Classification** — whether the tool belongs to the normal
+    working environment or should be introduced only when a specific
+    analytical need justifies it.
 
-**Tool selection is driven by analytical need.**
+A tool being installed, configured, or verified does **not** make its
+use mandatory in any case.
+
+> **Tool selection is driven by analytical need.**
+
+------------------------------------------------------------------------
 
 ## 1. Tool Usage Principles
 
-The portfolio follows these rules:
+The following principles govern tooling decisions:
 
-1.  A tool is introduced only when it supports a concrete analytical,
-    specification, collaboration, or verification task.
-2.  Tool usage must produce analytical value or verification evidence.
-3.  A tool is not used solely to create portfolio screenshots or
-    increase apparent technology coverage.
-4.  Case-specific tooling must remain consistent with the Portfolio
-    Artifact Coverage Matrix.
-5.  Standard and machine-readable artifacts must remain valid in their
-    canonical formats.
-6.  Accepted analytical baselines are version-controlled where
-    appropriate.
-7.  Automation is introduced only after the underlying manual analytical
-    process is understood.
+1.  A tool is used only when it supports a concrete analytical,
+    modeling, specification, verification, delivery, or reproducibility
+    need.
+2.  Availability does not imply required usage.
+3.  Case scope and analytical need determine the appropriate tool and
+    depth of use.
+4.  Canonical specifications and machine-readable artifacts must remain
+    valid in their native formats.
+5.  Tools must not replace explicit Decision Ownership.
+6.  Verification tooling supports specifications; it does not become the
+    specification itself.
+7.  Information is stored according to the responsibility of the
+    relevant workspace rather than copied across tools without need.
+8.  Automation is introduced only after the underlying manual process is
+    understood.
+9.  Specialized technologies are introduced when the problem requires
+    them, not merely because they are available.
+10. Tooling must support analytical progress rather than become a
+    separate delivery objective.
 
-## 2. Tool Status Model
+------------------------------------------------------------------------
 
-Tools are classified by expected usage.
+## 2. Status Model
 
-  -----------------------------------------------------------------------
-  Status                              Meaning
-  ----------------------------------- -----------------------------------
-  **Core**                            Part of the normal portfolio
-                                      operating environment and expected
-                                      to be used across multiple cases.
+### 2.1 Environment Status
 
-  **Case-Driven**                     Introduced when the scope and
-                                      analytical needs of a specific case
-                                      justify it.
+| Status         | Meaning                                                             |
+|----------------|---------------------------------------------------------------------|
+| **Available**  | Installed or otherwise accessible in the working environment.       |
+| **Configured** | Available and configured sufficiently for intended use.             |
+| **Verified**   | Configuration and essential behavior have been practically checked. |
 
-  **Optional / Need-Driven**          Used only when it provides clear
-                                      value for a specific task. Presence
-                                      in the baseline does not imply
-                                      mandatory usage.
-  -----------------------------------------------------------------------
+A higher status implies the preceding states.
+
+### 2.2 Usage Classification
+
+| Classification                    | Meaning                                                                                                                                         |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Core**                          | Part of the normal working environment and expected to support multiple cases.                                                                  |
+| **Case-Driven**                   | Used only when a case establishes a concrete analytical, modeling, specification, or verification need.                                         |
+| **Optional / Need-Driven**        | Used for a specific task when it provides clear additional value.                                                                               |
+| **Not Planned for Case Workflow** | Available or configured in the environment but intentionally excluded from the normal case workflow unless a future need changes that decision. |
+
+Environment Status and Usage Classification must not be conflated.
+
+For example, a tool may be fully configured while still being
+`Not Planned for Case Workflow`.
+
+------------------------------------------------------------------------
 
 ## 3. Core Workstation
 
-**Purpose:** create and maintain a reproducible local analytical working
+**Purpose:** provide a stable and reproducible local working
 environment.
 
-  --------------------------------------------------------------------------
-  Tool                    Status        Analyst Use         Typical Output /
-                                                            Evidence
-  ---------------- -------------------- ------------------- ----------------
-  Windows 11             **Core**       Primary workstation Reproducible
-                                        environment         local working
-                                                            environment
+| Tool       | Environment Status | Usage    | Analyst Use                                                                              |
+|------------|--------------------|----------|------------------------------------------------------------------------------------------|
+| Windows 11 | **Verified**       | **Core** | Primary workstation environment                                                          |
+| PowerShell | **Verified**       | **Core** | Repository navigation, file operations, CLI execution, environment checks                |
+| VS Code    | **Verified**       | **Core** | Edit Markdown, YAML, JSON, SQL, PlantUML, specifications, and other file-based artifacts |
 
-  PowerShell             **Core**       Repository          Reproducible
-                                        navigation, file    project
-                                        operations, CLI     operations and
-                                        execution,          command history
-                                        environment checks
+Working directories, commands, file locations, and reproducible
+operations should be explicit when local execution is part of the
+analytical workflow.
 
-  VS Code                **Core**       Edit Markdown,      Analytical and
-                                        YAML, JSON, SQL,    technical source
-                                        PlantUML, and other files
-                                        source-controlled
-                                        artifacts
-  --------------------------------------------------------------------------
+------------------------------------------------------------------------
 
-File locations, commands, and project operations should be explicit and
-reproducible.
+## 4. Repository and Versioning
 
-## 4. Version Control
+**Purpose:** preserve Portfolio files, canonical file-based artifacts,
+meaningful version history, and milestone states.
 
-**Purpose:** maintain durable, reviewable history of accepted analytical
-states.
+| Tool   | Environment Status | Usage    | Analyst Use                                                     | Typical Output / Evidence                             |
+|--------|--------------------|----------|-----------------------------------------------------------------|-------------------------------------------------------|
+| Git    | **Verified**       | **Core** | Inspect and version Portfolio file changes                      | Commits, diffs, tags, history                         |
+| GitHub | **Verified**       | **Core** | Remote repository, Portfolio publication, repository navigation | Published repository, remote history, milestone state |
 
-  -----------------------------------------------------------------------
-  Tool                    Status        Analyst Use      Typical Output /
-                                                         Evidence
-  ---------------- -------------------- ---------------- ----------------
-  Git                    **Core**       Version accepted Commits, diffs,
-                                        analytical       branches, tags,
-                                        baselines and    history
-                                        inspect changes
+Git/GitHub are used for:
 
-  GitHub                 **Core**       Remote           Repository
-                                        repository,      history, pull
-                                        portfolio        requests where
-                                        navigation,      applicable,
-                                        review, and      published
-                                        publication of   portfolio
-                                        accepted states
-  -----------------------------------------------------------------------
+- Portfolio repository content;
+- file-based analytical artifacts;
+- canonical technical files where appropriate;
+- meaningful version history;
+- milestone tags;
+- publication and presentation of the Portfolio.
 
-Git is the durable accepted-baseline layer.
+Git is **not** the mandatory system of record for all day-to-day
+analytical knowledge.
 
-A commit records a meaningful versioned state, but it does not replace
-stakeholder approval where approval is required.
+A commit, merge, or tag records repository state. It does not replace
+stakeholder approval, a business decision, architecture approval, or
+another form of Decision Ownership.
 
-## 5. Collaboration & Delivery
+------------------------------------------------------------------------
 
-**Purpose:** separate delivery workflow from evolving collaborative
-knowledge and durable accepted baselines.
+## 5. Collaboration and Delivery
 
-  -----------------------------------------------------------------------
-  Tool                    Status        Analyst Use      Typical Output /
-                                                         Evidence
-  ---------------- -------------------- ---------------- ----------------
-  Jira                   **Core**       Manage delivery  Epics, Stories,
-                                        work and         Tasks, Bugs,
-                                        workflow state   Change Requests
+**Purpose:** separate delivery management from collaborative analytical
+knowledge.
 
-  Confluence             **Core**       Maintain         Discovery notes,
-                                        evolving         working
-                                        collaborative    requirements,
-                                        knowledge        meeting notes,
-                                                         review material
-  -----------------------------------------------------------------------
+| Platform         | Environment Status | Usage    | Analyst Use                                 | Typical Output                                                                                               |
+|------------------|--------------------|----------|---------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| Jira Cloud       | **Verified**       | **Core** | Manage delivery work and workflow state     | Epics, Stories, Tasks, Bugs, Change Requests, backlog state                                                  |
+| Confluence Cloud | **Verified**       | **Core** | Maintain collaborative analytical knowledge | Initiative, Discovery, Scope, Requirements, Business Rules, Meeting Notes, review and specification material |
 
-The persistence model is:
+Current collaboration environment includes:
+
+- Jira workspace `Analyst Portfolio`;
+- configured Scrum workflow;
+- Confluence Portfolio space;
+- Case 1 Confluence workspace.
+
+### Persistence Model
 
 ``` text
 Jira
-└── Delivery State
+└── Delivery Management
 
 Confluence
-└── Evolving Team Knowledge
+└── Working Analytical Knowledge
 
-Git
-└── Durable Accepted Baseline
+Git / GitHub
+└── Portfolio Files / Version History / Milestones
 ```
 
-Complete analytical specifications should not be fragmented across tools
-without a clear ownership and persistence rule.
+Complete analytical content should not be fragmented across platforms
+without a clear responsibility or reference model.
+
+### Configured Communication Environment
+
+Slack is installed and configured, and Jira integration has been
+verified.
+
+| Tool                 | Environment Status | Usage                             |
+|----------------------|--------------------|-----------------------------------|
+| Slack                | **Verified**       | **Not Planned for Case Workflow** |
+| Jira Cloud for Slack | **Verified**       | **Not Planned for Case Workflow** |
+
+These capabilities are recorded as part of the prepared environment
+only. They are not part of the planned analytical workflow for the three
+cases.
+
+------------------------------------------------------------------------
 
 ## 6. Modeling
 
-**Purpose:** express business processes, system behavior, boundaries,
-interactions, and explanatory views using the notation appropriate to
+**Purpose:** express processes, behavior, boundaries, interactions, data
+relationships, and explanatory views using the notation appropriate to
 the analytical problem.
 
-  ------------------------------------------------------------------------
-  Tool                    Status        Analyst Use       Typical Output /
-                                                          Evidence
-  ---------------- -------------------- ----------------- ----------------
-  draw.io            **Case-Driven**    Visual modeling   Architecture,
-                                        where manual      process,
-                                        layout control    context, or
-                                        adds value        explanatory
-                                                          diagrams
+| Tool            | Environment Status | Usage           | Analyst Use                                                 | Typical Output                                         |
+|-----------------|--------------------|-----------------|-------------------------------------------------------------|--------------------------------------------------------|
+| PlantUML        | **Verified**       | **Core**        | Canonical diagram-as-code for supported analytical diagrams | `.puml` source and derived visualization               |
+| draw.io         | **Verified**       | **Case-Driven** | Manual visual modeling where layout control adds value      | Architecture, context, process, or explanatory diagram |
+| Camunda Modeler | **Verified**       | **Case-Driven** | BPMN modeling and validation                                | BPMN model and source                                  |
+| Graphviz        | **Verified**       | **Supporting**  | Rendering support for diagram tooling where required        | Rendered graph/diagram support                         |
+| Java            | **Verified**       | **Supporting**  | Runtime support for PlantUML and related tooling            | Reproducible diagram generation                        |
 
-  PlantUML               **Core**       Canonical         `.puml` source
-                                        diagram-as-code   and derived
-                                        for supported     visualization
-                                        analytical
-                                        diagrams
+`Supporting` in this section means a technical dependency of an
+analytical tool rather than a standalone case activity.
 
-  Camunda Modeler    **Case-Driven**    BPMN modeling and BPMN process
-                                        validation        model and BPMN
-                                                          source
-  ------------------------------------------------------------------------
+### Diagram Artifact Standard
 
-Tool choice depends on analytical purpose and notation.
-
-Where PlantUML is selected as the canonical representation for a diagram
-artifact, the artifact maintains three semantically consistent views:
+Where PlantUML is selected as the canonical representation, a diagram
+artifact maintains three semantically consistent views:
 
 1.  textual description;
 2.  canonical PlantUML source;
@@ -184,279 +199,357 @@ artifact, the artifact maintains three semantically consistent views:
 The visualization must not become an independent source of analytical
 facts.
 
-For BPMN, Camunda Modeler may be preferred when BPMN-specific modeling
-and validation provide more value than generic diagram tooling. In that
-case, the BPMN model and its standard semantics form the canonical
-representation.
+For BPMN, Camunda Modeler may be preferred when BPMN-specific notation
+and validation provide greater analytical value. In that case, the BPMN
+model and BPMN semantics form the canonical representation.
 
-## 7. API & Integration
+------------------------------------------------------------------------
+
+## 7. API and Integration
 
 **Purpose:** specify and verify synchronous and asynchronous system
 contracts.
 
 ### Contract Specification
 
-  -----------------------------------------------------------------------
-  Tool / Standard         Status        Analyst Use      Typical Output /
-                                                         Evidence
-  ---------------- -------------------- ---------------- ----------------
-  OpenAPI            **Case-Driven**    Specify REST API OpenAPI YAML
-                                        contracts        specification
+| Tool / Standard | Environment Status | Usage           | Analyst Use                                       | Typical Output                               |
+|-----------------|--------------------|-----------------|---------------------------------------------------|----------------------------------------------|
+| OpenAPI tooling | **Verified**       | **Case-Driven** | Specify and validate REST API contracts           | OpenAPI YAML                                 |
+| AsyncAPI CLI    | **Verified**       | **Case-Driven** | Validate asynchronous/event-driven specifications | AsyncAPI specification and validation output |
 
-  AsyncAPI           **Case-Driven**    Specify          AsyncAPI
-                                        asynchronous and specification
-                                        event-driven
-                                        contracts
-  -----------------------------------------------------------------------
+OpenAPI and AsyncAPI are canonical contract formats when their
+respective interaction styles are justified.
 
-### Interaction & Verification
+### Interaction and Verification
 
-  --------------------------------------------------------------------------
-  Tool                    Status        Analyst Use         Typical Output /
-                                                            Evidence
-  ---------------- -------------------- ------------------- ----------------
-  Bruno              **Case-Driven**    Execute and verify  Request
-                                        API requests using  collections and
-                                        source-controlled   verification
-                                        collections         evidence
+| Tool    | Environment Status | Usage           | Analyst Use                                                  | Typical Output / Evidence        |
+|---------|--------------------|-----------------|--------------------------------------------------------------|----------------------------------|
+| Bruno   | **Verified**       | **Case-Driven** | Execute and verify API requests using file-based collections | Requests, collections, responses |
+| Postman | **Verified**       | **Case-Driven** | Explore, execute, and verify API behavior where useful       | Collections, requests, responses |
 
-  Postman            **Case-Driven**    Explore, execute,   Collections,
-                                        and verify API      requests,
-                                        behavior where      responses,
-                                        useful              verification
-                                                            evidence
-  --------------------------------------------------------------------------
+Bruno and Postman support interaction and verification. They do not
+replace OpenAPI or another canonical contract specification.
 
-OpenAPI and AsyncAPI define contracts.
+Using both API clients for the same task is not required. The client is
+selected according to the task.
 
-Bruno and Postman support interaction and verification; they do not
-replace contract specifications.
+------------------------------------------------------------------------
 
-The verification client is selected by task. Using both clients for the
-same work is not required.
+## 8. Relational Data
 
-## 8. Data & Distributed Systems
+**Purpose:** model, inspect, and verify relational data behavior when
+justified by the case.
 
-**Purpose:** analyze and verify persistence, messaging, ownership, and
-runtime data behavior when these concerns are justified by the case.
+| Tool / Technology | Environment Status | Usage           | Analyst Use                                                        | Typical Output / Evidence                           |
+|-------------------|--------------------|-----------------|--------------------------------------------------------------------|-----------------------------------------------------|
+| PostgreSQL        | **Verified**       | **Case-Driven** | Validate relational structures, constraints, DDL, and SQL behavior | Schemas, DDL, queries, test data                    |
+| DBeaver           | **Verified**       | **Case-Driven** | Inspect schemas and execute database operations                    | Schema inspection, query results, data verification |
 
-### Relational Data
+PostgreSQL is introduced when relational modeling, persistence behavior,
+or SQL verification is part of the analytical problem.
 
-  -----------------------------------------------------------------------
-  Tool /                  Status        Analyst Use      Typical Output /
-  Technology                                             Evidence
-  ---------------- -------------------- ---------------- ----------------
-  PostgreSQL         **Case-Driven**    Validate         Schemas, DDL,
-                                        relational data  queries, test
-                                        structures and   data
-                                        SQL behavior
+------------------------------------------------------------------------
 
-  DBeaver            **Case-Driven**    Inspect and work Schema
-                                        with relational  inspection,
-                                        databases        query results,
-                                                         data
-                                                         verification
-  -----------------------------------------------------------------------
+## 9. Event-Driven Messaging
 
-### Messaging, Cache & Document Persistence
+**Purpose:** analyze and practically verify event-driven communication
+when asynchronous behavior is justified.
 
-  -----------------------------------------------------------------------------
-  Tool /                  Status        Analyst Use         Typical Output /
-  Technology                                                Evidence
-  ---------------- -------------------- ------------------- -------------------
-  Kafka              **Case-Driven**    Analyze and verify  Topics, messages,
-                                        event-driven        producer/consumer
-                                        communication       verification
-                                        concepts
+| Tool / Technology | Environment Status | Usage           | Analyst Use                                                             | Typical Output / Evidence                    |
+|-------------------|--------------------|-----------------|-------------------------------------------------------------------------|----------------------------------------------|
+| Kafka 4.3.1       | **Verified**       | **Case-Driven** | Analyze and verify event-driven communication                           | Topics, messages, producer/consumer behavior |
+| Kafka UI          | **Verified**       | **Case-Driven** | Inspect topics, partitions, messages, consumer groups, offsets, and lag | Runtime inspection evidence                  |
+| AsyncAPI CLI      | **Verified**       | **Case-Driven** | Validate event contract specifications                                  | AsyncAPI validation                          |
 
-  Redis              **Case-Driven**    Analyze             Cache structures,
-                                        cache-related       TTL and behavior
-                                        behavior where      verification
-                                        justified
+The environment has been practically verified for:
 
-  MongoDB            **Case-Driven**    Analyze             Collections,
-                                        document-oriented   document
-                                        persistence where   structures, query
-                                        justified           evidence
-  -----------------------------------------------------------------------------
+- producer / consumer interaction;
+- partitions and keys;
+- consumer groups;
+- offsets;
+- lag.
 
-These technologies are not introduced for technology coverage:
+Kafka is introduced only when asynchronous or event-driven communication
+is part of the system problem.
 
--   **PostgreSQL** --- when relational data modeling or SQL verification
-    is required.
--   **Kafka** --- when asynchronous or event-driven communication is
-    justified.
--   **Redis** --- when cache behavior is part of the system problem.
--   **MongoDB** --- when a document-oriented persistence decision is
-    relevant.
+Before detailed event specification, relevant concerns should include
+event meaning, producer, consumer, ownership, trigger, ordering
+requirements, delivery semantics, idempotency, retry/failure handling,
+replay, and observability where applicable.
 
-The Artifact Coverage Matrix controls expected depth by case.
+------------------------------------------------------------------------
 
-## 9. Runtime & Local Environment
+## 10. Cache
 
-**Purpose:** provide reproducible local infrastructure when hands-on
-verification requires real dependencies.
+**Purpose:** analyze cache-related behavior when caching is a justified
+system concern.
 
-  ---------------------------------------------------------------------------
-  Tool                    Status        Analyst Use      Typical Output /
-                                                         Evidence
-  ---------------- -------------------- ---------------- --------------------
-  Docker             **Case-Driven**    Run local        Containers and
-                                        infrastructure   reproducible service
-                                        required for     environment
-                                        analysis or
-                                        verification
+| Tool / Technology   | Environment Status | Usage           | Analyst Use                                      | Typical Output / Evidence           |
+|---------------------|--------------------|-----------------|--------------------------------------------------|-------------------------------------|
+| Redis 8             | **Verified**       | **Case-Driven** | Analyze and verify cache structures and behavior | Keys, values, TTL, runtime behavior |
+| Redis Insight 3.4.2 | **Verified**       | **Case-Driven** | Inspect Redis data and behavior                  | Visual inspection and verification  |
 
-  Docker Compose     **Case-Driven**    Coordinate       Version-controlled
-                                        multiple local   multi-service
-                                        dependencies     environment
-                                                         definition
-  ---------------------------------------------------------------------------
+Redis is introduced only when caching, expiration, temporary state, or
+another Redis-appropriate concern is relevant to the analyzed solution.
 
-Docker is infrastructure support, not an analytical deliverable by
-itself.
+------------------------------------------------------------------------
+
+## 11. Document Persistence
+
+**Purpose:** analyze document-oriented persistence when the case
+establishes a justified need.
+
+| Tool / Technology      | Environment Status | Usage           | Analyst Use                                            | Typical Output / Evidence          |
+|------------------------|--------------------|-----------------|--------------------------------------------------------|------------------------------------|
+| MongoDB 8.0.29         | **Verified**       | **Case-Driven** | Analyze and verify document structures and persistence | Collections, documents, queries    |
+| MongoDB Compass 1.50.0 | **Verified**       | **Case-Driven** | Inspect collections, documents, and query behavior     | Visual inspection and verification |
+
+The environment has been practically verified through connectivity and
+document operations.
+
+MongoDB is introduced only when document-oriented persistence is
+justified by the system problem or an accepted technical decision.
+
+------------------------------------------------------------------------
+
+## 12. Runtime Infrastructure
+
+**Purpose:** provide reproducible local dependencies for hands-on
+verification.
+
+| Tool           | Environment Status | Usage           | Analyst Use                                                    | Typical Output / Evidence             |
+|----------------|--------------------|-----------------|----------------------------------------------------------------|---------------------------------------|
+| Docker Desktop | **Verified**       | **Case-Driven** | Run local infrastructure required for analysis or verification | Containers and runtime environment    |
+| Docker Compose | **Verified**       | **Case-Driven** | Coordinate multiple local dependencies                         | Reproducible multi-service definition |
+
+Docker is infrastructure support, not an analytical deliverable.
 
 A local container environment is justified when it enables contract,
-database, messaging, cache, or integration verification.
+database, messaging, cache, document persistence, or integration
+verification.
 
-## 10. Analytical Automation
+------------------------------------------------------------------------
 
-**Purpose:** automate repetitive analytical or verification work only
-after the underlying process is understood.
+## 13. Supporting CLI and Runtime Toolchain
 
-  -----------------------------------------------------------------------
-  Tool                    Status        Analyst Use      Typical Output /
-                                                         Evidence
-  ---------------- -------------------- ---------------- ----------------
-  Python               **Optional /     Automate         Scripts,
-                      Need-Driven**     repetitive       generated
-                                        analytical or    checks,
-                                        verification     transformation
-                                        tasks            or validation
-                                                         output
+**Purpose:** provide supporting runtime and command-line capabilities
+required by analytical tools and reproducible verification workflows.
 
-  -----------------------------------------------------------------------
+| Tool         | Environment Status | Usage                        | Purpose                                              |
+|--------------|--------------------|------------------------------|------------------------------------------------------|
+| Node / npm   | **Verified**       | **Case-Driven / Supporting** | Runtime/package support for CLI tooling              |
+| Java         | **Verified**       | **Supporting**               | PlantUML and related runtime support                 |
+| Graphviz     | **Verified**       | **Supporting**               | Diagram rendering support                            |
+| jq           | **Verified**       | **Case-Driven / Supporting** | Inspect and transform JSON in verification workflows |
+| AsyncAPI CLI | **Verified**       | **Case-Driven**              | AsyncAPI validation and related CLI operations       |
+
+Supporting tools are not independent analytical deliverables. They are
+used when another justified activity requires them.
+
+------------------------------------------------------------------------
+
+## 14. Analytical Automation
+
+**Purpose:** automate repetitive analytical or verification work after
+the underlying process is understood.
+
+| Tool   | Environment Status | Usage                      | Analyst Use                                          | Typical Output                                                |
+|--------|--------------------|----------------------------|------------------------------------------------------|---------------------------------------------------------------|
+| Python | **Verified**       | **Optional / Need-Driven** | Automate repetitive analytical or verification tasks | Scripts, validation output, transformations, generated checks |
 
 The governing sequence is:
 
 ``` text
-Manual analytical process
+Manual Analytical Process
         ↓
-Process understood
+Process Understood
         ↓
-Stable inputs and outputs
+Stable Inputs and Outputs
         ↓
-Repetitive task identified
+Repetition / Risk / Inefficiency Identified
         ↓
-Automation justified
+Automation Justified
         ↓
 Python
 ```
 
-Python supports the analyst's workflow. It does not replace analytical
-reasoning, stakeholder decisions, or ownership.
+Python supports analytical work. It does not replace analytical
+reasoning, stakeholder decisions, canonical specifications, or
+specialized tools.
 
-The portfolio remains separate from NovaMarket Toolkit and must not
-evolve into another general-purpose analytical platform.
+Automation must have a concrete benefit such as improved repeatability,
+consistency, speed, validation, or reduction of error-prone manual work.
 
-## 11. Tool Selection by Analytical Need
+------------------------------------------------------------------------
 
-The mapping below is a practical lookup guide. It is grouped by work
-area so that related tasks do not merge into one long undifferentiated
-table.
+## 15. Tool Selection by Analytical Need
 
-### Repository & Collaboration
+The following mapping is a practical default.
 
-  Analytical Need                                   Preferred Tooling
-  ------------------------------------------------- -------------------
-  Edit and review source-controlled documentation   VS Code
-  Execute local project and repository commands     PowerShell
-  Inspect accepted changes and history              Git / GitHub
-  Manage backlog and delivery state                 Jira
-  Maintain evolving collaborative knowledge         Confluence
+### Analytical Knowledge and Delivery
 
-### Modeling & Contracts
+| Analytical Need                               | Preferred Tooling |
+|-----------------------------------------------|-------------------|
+| Maintain collaborative analytical knowledge   | Confluence        |
+| Manage backlog and delivery state             | Jira              |
+| Edit file-based artifacts                     | VS Code           |
+| Execute local commands and verification steps | PowerShell        |
+| Preserve Portfolio files and version history  | Git / GitHub      |
 
-  Analytical Need                              Preferred Tooling
-  -------------------------------------------- -------------------
-  Create canonical UML-style diagram source    PlantUML
-  Model BPMN processes                         Camunda Modeler
-  Create manually controlled visual diagrams   draw.io
-  Specify REST contracts                       OpenAPI
-  Specify asynchronous contracts               AsyncAPI
-  Execute API requests                         Bruno or Postman
+### Modeling
 
-### Data, Integration & Runtime
+| Analytical Need                            | Preferred Tooling |
+|--------------------------------------------|-------------------|
+| Create canonical UML-style diagram source  | PlantUML          |
+| Model BPMN processes                       | Camunda Modeler   |
+| Create manually controlled visual diagrams | draw.io           |
 
-  Analytical Need                    Preferred Tooling
-  ---------------------------------- -------------------------
-  Model and verify relational data   PostgreSQL / DBeaver
-  Analyze event-driven messaging     Kafka
-  Analyze cache behavior             Redis
-  Analyze document persistence       MongoDB
-  Run local infrastructure           Docker / Docker Compose
+### API and Integration
+
+| Analytical Need                       | Preferred Tooling |
+|---------------------------------------|-------------------|
+| Specify REST contracts                | OpenAPI           |
+| Execute REST requests                 | Bruno or Postman  |
+| Specify asynchronous contracts        | AsyncAPI          |
+| Inspect event-driven runtime behavior | Kafka / Kafka UI  |
+
+### Data and Runtime
+
+| Analytical Need                  | Preferred Tooling         |
+|----------------------------------|---------------------------|
+| Model and verify relational data | PostgreSQL / DBeaver      |
+| Analyze cache behavior           | Redis / Redis Insight     |
+| Analyze document persistence     | MongoDB / MongoDB Compass |
+| Run local dependencies           | Docker / Docker Compose   |
 
 ### Automation
 
-  Analytical Need                      Preferred Tooling
-  ------------------------------------ -------------------
-  Automate justified repetitive work   Python
+| Analytical Need                               | Preferred Tooling |
+|-----------------------------------------------|-------------------|
+| Automate justified repetitive analytical work | Python            |
 
-This mapping is a default, not a prohibition against other justified
-choices.
+This mapping is a default. A different tool may be used when a concrete
+analytical need justifies it.
 
-## 12. Verification Evidence
+------------------------------------------------------------------------
 
-**Purpose:** ensure that hands-on tool usage produces evidence that
-another person can understand and, where applicable, reproduce.
+## 16. Verification Evidence
+
+Hands-on tool usage should produce evidence appropriate to the
+analytical question being verified.
 
 Depending on the task, evidence may include:
 
--   version-controlled specification;
--   command and expected result;
--   request and response example;
--   SQL query and result;
--   schema inspection;
--   message or event example;
--   validated diagram source;
--   test data;
--   concise screenshot where visual evidence is genuinely useful;
--   recorded issue, defect, or decision resulting from verification.
+- canonical specification;
+- validated source file;
+- reproducible command and result;
+- API request and response;
+- SQL query and result;
+- schema inspection;
+- event or message example;
+- consumer-group or runtime inspection;
+- cache behavior;
+- document query;
+- test data;
+- concise screenshot where visual evidence materially helps;
+- issue, defect, clarification, or decision resulting from verification.
 
-Screenshots are supporting evidence, not a substitute for canonical
-specifications or reproducible steps.
+Evidence must be proportional to the task.
 
-## 13. Tool Introduction Rule
+Screenshots are supporting evidence. They do not replace canonical
+specifications, reproducible steps, or structured analytical
+conclusions.
 
-Before introducing a new tool into a case, answer five questions:
+------------------------------------------------------------------------
 
-1.  **Analytical problem** --- What problem are we solving?
-2.  **Need** --- Why is the existing toolset insufficient?
-3.  **Activity** --- What will the analyst do with the tool?
-4.  **Result** --- What artifact, decision, or verification evidence
-    will result?
-5.  **Baseline impact** --- Does the tool affect the accepted
-    workstation or case baseline?
+## 17. Tool Introduction Rule
 
-If these questions cannot be answered, the tool should not be introduced
-yet.
+Before introducing a tool or technology into a case, establish:
 
-## 14. Baseline Evolution
+1.  **Analytical Need** — What problem or uncertainty requires it?
+2.  **Role** — What activity will the tool support?
+3.  **Owner / User** — Which role uses or reviews the result?
+4.  **Output** — What artifact, specification, verification result, or
+    decision will it support?
+5.  **Alternatives** — Can the need already be satisfied adequately by
+    the current toolset?
+6.  **Case Impact** — Does introducing it affect scope, dependencies,
+    specifications, or the working environment?
 
-This tooling baseline may evolve as the cases reveal justified needs.
+If no concrete analytical value can be established, the tool should not
+be introduced into the case.
 
-A new tool or technology should be added only when its role is explicit.
-A tool may also be removed if it no longer provides analytical value.
+------------------------------------------------------------------------
 
-Changes to the baseline should preserve:
+## 18. Baseline Evolution
 
--   reproducibility;
--   clear tool ownership and purpose;
--   compatibility with the Working Model;
--   compatibility with the Localization Policy;
--   consistency with the Artifact Coverage Matrix.
+This baseline may evolve when a case establishes a justified need.
+
+A tool may be:
+
+- added;
+- configured further;
+- practically verified;
+- reclassified;
+- removed from planned case usage.
+
+Baseline changes should preserve:
+
+- reproducibility;
+- explicit purpose;
+- compatibility with the Working Model;
+- compatibility with the Localization Policy;
+- consistency with the Artifact Coverage Matrix;
+- separation between environment readiness and actual case usage.
 
 The governing principle is:
 
-**Analytical need → appropriate tool → reproducible activity →
-meaningful artifact or verification evidence.**
+> **Analytical need → appropriate tool → reproducible activity →
+> meaningful artifact or verification evidence.**
+
+------------------------------------------------------------------------
+
+## Current Baseline Summary
+
+The current environment is prepared for the planned analytical work
+across the three cases.
+
+### Verified Core Environment
+
+- Windows 11;
+- PowerShell;
+- VS Code;
+- Git / GitHub;
+- Jira Cloud;
+- Confluence Cloud.
+
+### Verified Case-Driven Capabilities
+
+- Docker Desktop / Docker Compose;
+- PostgreSQL / DBeaver;
+- Bruno / Postman;
+- OpenAPI tooling;
+- PlantUML / draw.io;
+- Camunda Modeler;
+- AsyncAPI CLI;
+- Kafka 4.3.1 / Kafka UI;
+- Redis 8 / Redis Insight 3.4.2;
+- MongoDB 8.0.29 / MongoDB Compass 1.50.0;
+- Node/npm;
+- Java;
+- Graphviz;
+- jq.
+
+### Verified Optional Automation Capability
+
+- Python.
+
+### Configured but Not Planned for Case Workflow
+
+- Slack;
+- Jira Cloud for Slack.
+
+The existence of these capabilities does not predetermine which
+technologies will appear in a case. Each case introduces only the tools
+justified by discovered requirements, accepted decisions, modeling
+needs, or verification needs.

@@ -4,7 +4,7 @@
 
 This case study focuses on System Analysis of a distributed order and fulfillment platform in a high-load e-commerce environment.
 
-The case is intended to explore system boundaries, distributed interactions, integration contracts, event-driven behavior, data ownership, reliability, and operational concerns when these areas are justified by discovered requirements and accepted technical decisions.
+The case explores system boundaries, distributed interactions, integration contracts, event-driven behavior, data ownership, reliability, and operational concerns when these areas are justified by discovered requirements and accepted technical decisions.
 
 Analytical and technical artifacts are created progressively and only when supported by established context, accepted decisions, or justified analytical need.
 
@@ -14,7 +14,7 @@ Analytical and technical artifacts are created progressively and only when suppo
 
 The analyst is responsible for structuring system requirements, identifying integration and data dependencies, coordinating technical clarification, maintaining contract and behavioral consistency, and preserving end-to-end traceability.
 
-Architecture, implementation, infrastructure, security, data-platform, and operational decisions remain with their appropriate decision owners.
+Architecture, implementation, infrastructure, security, data-platform, and operational decisions remain with their appropriate Decision Owners.
 
 ## Current Status
 
@@ -26,6 +26,6 @@ No system requirements, architecture decisions, service boundaries, API or event
 
 ## Case Workspace
 
-Case-specific analytical materials will be added incrementally as the analysis progresses.
+Case-specific analytical materials will be added progressively as analysis establishes a justified need.
 
-The workspace will evolve according to the portfolio Working Model, Analyst Delivery Lifecycle, Artifact Coverage Matrix, Localization Policy, and Tooling Baseline.
+Analytical work follows the Portfolio Working Model, Analyst Delivery Lifecycle, Artifact Coverage Matrix, Localization Policy, and Tooling Baseline.

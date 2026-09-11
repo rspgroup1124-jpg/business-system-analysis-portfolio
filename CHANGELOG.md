@@ -1,6 +1,6 @@
 # Changelog
 
-All meaningful changes to the accepted portfolio baseline are documented in this file.
+All meaningful changes to the Portfolio baseline are documented in this file.
 
 The changelog records portfolio-level and case-level analytical evolution. It is not a log of individual editing steps, terminal commands, or minor formatting changes.
 
@@ -13,10 +13,14 @@ The changelog records portfolio-level and case-level analytical evolution. It is
   - Omnichannel Delivery & Pickup.
   - Distributed Order & Fulfillment Platform.
   - Returns, Refunds & Claims Management.
-- Added the portfolio overview and analytical positioning.
-- Added the Artifact Coverage Matrix as the portfolio scope-control baseline.
-- Added the 12-stage Analyst Delivery Lifecycle.
-- Added the Working Model for progressive disclosure, decision ownership, knowledge persistence, traceability, and controlled change.
-- Added the Localization Policy for analytical language, canonical syntax, and technical identifiers.
-- Added the Tooling Baseline for workstation, collaboration, modeling, specification, verification, data, infrastructure, and analytical automation.
+- Added the Portfolio Overview defining the analytical positioning and complementary case profiles.
+- Added the Artifact Coverage Matrix as the demand-driven portfolio scope-control baseline.
+- Added the 12-stage Analyst Delivery Lifecycle from Initiative / Intake through Production Feedback / Change.
+- Added the Working Model for progressive disclosure, Decision Ownership, workspace responsibilities, analytical persistence, traceability, and controlled change.
+- Added the Localization Policy for analytical language, professional terminology, canonical syntax, and technical identifiers.
+- Added the Tooling Baseline separating environment readiness from actual case usage and defining demand-driven tool selection.
+- Established the responsibility-based workspace model:
+  - Jira for Delivery Management.
+  - Confluence for Working Analytical Knowledge.
+  - Git / GitHub for Portfolio files, version history, and milestones.
 - Established the repository-level Git ignore baseline.

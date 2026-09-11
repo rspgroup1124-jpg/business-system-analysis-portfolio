@@ -7,9 +7,14 @@ persist, and change analytical work across the three Business/System
 Analysis case studies.
 
 It complements the Analyst Delivery Lifecycle. The lifecycle defines
-when analytical activities occur; this Working Model defines how
-information is obtained, how decisions are owned, where knowledge is
-persisted, and how changes propagate across the analytical baseline.
+**when** analytical activities occur; this Working Model defines **how**
+information is obtained, clarified, classified, persisted, reviewed,
+traced, and changed.
+
+The objective is not maximum documentation volume or process ceremony.
+The objective is a realistic, efficient, traceable analytical workflow
+that turns incomplete information into verified specifications and
+controlled delivery outcomes.
 
 ## 1. Progressive Disclosure
 
@@ -19,327 +24,556 @@ the start of a case.
 Information becomes available through the analytical process:
 
 1.  an initiative provides limited initial context;
-2.  the analyst identifies what is known and unknown;
-3.  questions are directed to the appropriate stakeholder;
-4.  stakeholder answers create facts, constraints, decisions,
-    assumptions, or additional questions;
-5.  approved information is propagated into affected analytical
-    artifacts.
+2.  known information is separated from uncertainty;
+3.  relevant stakeholders and Decision Owners are identified;
+4.  clarification questions are formulated;
+5.  stakeholder answers establish facts, constraints, decisions,
+    assumptions, dependencies, risks, or additional questions;
+6.  analytical conclusions are created only when supported by sufficient
+    evidence;
+7.  affected artifacts are created or updated when there is a justified
+    analytical need.
 
 Requirements, Business Rules, architecture constraints, API contracts,
-data models, and other downstream specifications must not be invented
-before sufficient evidence or an explicit decision exists.
+event contracts, data models, target-state processes, and other
+downstream specifications must not be invented before sufficient
+evidence or an explicit decision exists.
 
-The analyst is expected to identify missing information rather than fill
+The analyst identifies missing information rather than silently filling
 gaps with undocumented assumptions.
 
-## 2. Stakeholder and Decision Ownership
+Future case information must not be used before it becomes available
+through the analytical process.
+
+## 2. Production Artifact Rule
+
+All analytical artifacts and working spaces must be suitable for use in
+a real production project.
+
+Their content must be professional, context-complete, semantically
+consistent, and understandable to the intended project audience without
+relying on external explanatory context.
+
+This rule applies to Confluence pages, Jira work items, requirements,
+Business Rules, process models, UML and C4 diagrams, API and event
+specifications, data models, Test Scenarios, UAT materials,
+traceability, Change Impact Analysis, and case-specific analytical
+documentation.
+
+## 3. Stakeholder and Decision Ownership
 
 The analyst coordinates information across roles but does not replace
-the owners of business, architecture, implementation, security, data, or
-quality decisions.
+the owners of business, architecture, implementation, security, data,
+quality, or operational decisions.
 
-Typical ownership follows these boundaries:
-
-  -----------------------------------------------------------------------
-  Decision Area                       Typical Owner
-  ----------------------------------- -----------------------------------
-  Business priority, value, scope     Product Owner
-  trade-off
-
-  Domain policy and operational rule  Domain SME / Business Owner
-
-  Architecture and system boundary    Solution Architect
-  decision
-
-  Implementation approach             Tech Lead / Developer
-
-  Data platform or database-specific  DBA / Data Engineer
-  decision
-
-  Security policy or security         Security
-  constraint
-
-  Operational reliability decision    DevOps / SRE
-
-  Test strategy and QA implementation QA / QA Automation
-
-  Requirement quality, specification  System Analyst
-  consistency, traceability,
-  cross-role clarification
-  -----------------------------------------------------------------------
+| Decision Area                                                                          | Typical Owner                  |
+|----------------------------------------------------------------------------------------|--------------------------------|
+| Business priority, value, scope trade-off                                              | Product Owner / Business Owner |
+| Domain policy and operational rule                                                     | Domain SME / Business Owner    |
+| Architecture and system boundary decision                                              | Solution Architect             |
+| Implementation approach                                                                | Tech Lead / Developer          |
+| Data platform or database-specific decision                                            | DBA / Data Engineer            |
+| Security policy or security constraint                                                 | Security                       |
+| Operational reliability decision                                                       | DevOps / SRE                   |
+| Test strategy and QA implementation                                                    | QA / QA Automation             |
+| Requirement quality, specification consistency, traceability, cross-role clarification | Business/System Analyst        |
 
 Ownership may vary by project context, but it must remain explicit.
 
 When a question falls outside analytical ownership, the analyst
-identifies the correct decision owner, obtains the decision, records it,
-and updates affected artifacts.
+identifies the appropriate stakeholder or Decision Owner, obtains
+clarification or a decision, records the outcome in the appropriate
+location, updates affected artifacts, and verifies downstream
+consistency and traceability.
 
-## 3. Analyst Responsibility Boundaries
+## 4. Analyst Responsibility Boundaries
 
-The System Analyst is responsible for:
+The Business/System Analyst is responsible for:
 
--   structuring incomplete information;
--   identifying gaps, contradictions, dependencies, and risks;
--   formulating clear questions;
--   maintaining requirement and specification quality;
--   coordinating cross-role clarification;
--   maintaining semantic consistency across artifacts;
--   maintaining traceability;
--   performing cross-artifact Change Impact Analysis;
--   ensuring accepted decisions are reflected in affected baselines.
+- structuring incomplete information;
+- identifying gaps, contradictions, dependencies, and risks;
+- formulating clear questions;
+- selecting the appropriate source of clarification;
+- maintaining requirement and specification quality;
+- coordinating cross-role clarification;
+- modeling processes and system behavior where justified;
+- maintaining semantic consistency across artifacts;
+- maintaining meaningful traceability;
+- supporting refinement, development, QA, and release readiness;
+- performing cross-artifact Change Impact Analysis;
+- ensuring accepted decisions are reflected in affected analytical
+  knowledge.
 
-The System Analyst does not silently make business, architecture,
-implementation, security, or operational decisions that belong to
-another role.
+The analyst does not silently make business, architecture,
+implementation, security, data-platform, or operational decisions that
+belong to another role.
 
-## 4. Persistence Model
+A technical proposal created by the analyst remains a proposal until the
+appropriate Decision Owner accepts it when such approval is required.
 
-Analytical information is persisted according to its purpose and
-maturity.
+## 5. Persistence and Workspace Model
 
-### Jira --- Delivery State
+Information is persisted according to its responsibility and working
+purpose.
 
-Jira is used for delivery-oriented work such as:
+No platform is used merely because it is available. The same analytical
+content should not be copied across systems without a concrete reason.
 
--   Epics;
--   Stories;
--   Tasks;
--   Bugs;
--   Change Requests;
--   delivery status;
--   prioritization;
--   assignment and workflow state.
+### Jira — Delivery Management
+
+Jira is used for Epics, Stories, Tasks, Bugs, Change Requests, backlog,
+sprint planning, prioritization, assignment, blockers, workflow state,
+and delivery progress.
 
 Jira is not the primary location for complete analytical specifications.
 
-### Confluence --- Evolving Team Knowledge
+Delivery items are created when analysis establishes real delivery work.
+Fictional Stories must not be created in advance merely to populate
+Jira.
 
-Confluence is used for collaborative and evolving knowledge such as:
+### Confluence — Working Analytical Knowledge
 
--   Discovery notes;
--   workshop and meeting notes;
--   stakeholder context;
--   working process descriptions;
--   evolving requirements;
--   unresolved questions;
--   review material;
--   draft decisions and collaborative analysis.
+Confluence is the primary collaborative knowledge space for evolving
+analytical content such as Initiative / Business Context, Discovery
+material, stakeholder context, Scope, evolving requirements, Business
+Rules, process descriptions, Meeting Notes, review material,
+specifications, decisions and supporting rationale, and other
+collaborative analytical knowledge.
 
-Confluence content may change frequently while analysis is active.
+Pages are created when a real knowledge responsibility appears. Empty
+page hierarchies are not created in advance merely to anticipate
+possible artifacts.
 
-### Git --- Durable Accepted Baseline
+### Git / GitHub — Portfolio Repository and Versioning
 
-Git is used for durable, reviewable, version-controlled analytical
-baselines such as:
+Git and GitHub are used primarily for:
 
--   accepted requirements;
--   approved Business Rules;
--   canonical diagrams and diagram source;
--   API and event contracts;
--   schemas;
--   data models and DDL;
--   traceability artifacts;
--   accepted decision records;
--   change-impact artifacts;
--   release-relevant analytical documentation.
+- storing file-based Portfolio artifacts;
+- preserving version history;
+- maintaining canonical technical files where appropriate;
+- meaningful Portfolio commits;
+- milestone tags;
+- publishing and presenting the Portfolio;
+- preserving repository state.
 
-Git history provides explicit versioning of accepted analytical states.
+Examples of file-based artifacts that may naturally live in Git include
+PlantUML source, OpenAPI, AsyncAPI, JSON Schema, SQL/DDL,
+machine-readable specifications, and repository-native analytical
+artifacts.
 
-## 5. Living Registers
+Git is **not** the mandatory system of record for all day-to-day
+analytical knowledge.
 
-Each case maintains a set of living management records as required by
-its scope.
+A Git commit, merge, or tag does not by itself mean that a Requirement,
+Business Rule, architecture decision, or other analytical statement has
+been accepted by its Decision Owner.
 
-Core registers include:
+Git workflow must support the Portfolio rather than become a separate
+source of process ceremony.
 
--   Open Questions;
--   Assumptions;
--   Constraints;
--   Decision Log;
--   Risk Register;
--   Dependency Register;
--   Change Log;
--   Meeting Notes.
+### Persistence Summary
 
-These records evolve throughout the lifecycle and are not treated as
-one-time documents.
+``` text
+Delivery State
+→ Jira
 
-A meaningful item should have enough context to understand its origin,
-current status, owner where applicable, and effect on the analysis.
+Working Analytical Knowledge
+→ Confluence
 
-## 6. Question-to-Decision Flow
+Portfolio Files / Version History / Milestones
+→ Git + GitHub
 
-A question follows a controlled path:
+Local Modeling / Verification / Experimentation
+→ Appropriate Specialized Tool
+```
 
-**Question → Classification → Decision Owner → Answer / Decision →
-Persistence → Artifact Update → Traceability Review**
+References and links should be used instead of unnecessary duplication.
 
-The analyst first determines what kind of question exists.
+## 6. Management Artifact Discipline
 
-Examples:
+> **Each management artifact must have one clear responsibility, contain
+> only the minimum information necessary for that responsibility, and
+> reference other sources instead of duplicating their content.**
 
--   missing specification detail;
--   business decision;
--   domain clarification;
--   architecture decision;
--   implementation detail;
--   security decision;
--   data ownership question;
--   operational constraint.
+A management artifact must not become a secondary copy of Requirements,
+Business Rules, Meeting Notes, process descriptions, API specifications,
+data models, test specifications, or other analytical artifacts.
 
-The answer must come from the appropriate source.
+Management artifacts are created only when their responsibility is
+needed by the case.
 
-A significant accepted answer must not remain only in chat, email, or
-meeting memory.
+## 7. Analysis Register
 
-## 7. Decision Propagation
+Case 1 uses a consolidated **Analysis Register** for six types of living
+management information:
+
+- Open Questions — `OQ-NNN`;
+- Assumptions — `ASM-NNN`;
+- Constraints — `CON-NNN`;
+- Decisions — `DEC-NNN`;
+- Risks — `RSK-NNN`;
+- Dependencies — `DEP-NNN`.
+
+The current file is:
+
+``` text
+case-01-omnichannel-delivery/
+└── docs/
+    └── 00-management/
+        └── analysis-register.md
+```
+
+The register is intentionally empty until real analytical information
+appears.
+
+An Open Question represents material uncertainty requiring a confirmed
+answer.
+
+An Assumption represents an unconfirmed proposition temporarily accepted
+as a working basis.
+
+A Constraint represents a confirmed condition restricting analysis or
+the solution space.
+
+A Decision represents a significant proposed or accepted decision with
+an explicit Decision Owner.
+
+A Risk represents an uncertain event or condition that may negatively
+affect objectives, schedule, quality, or delivery.
+
+A Dependency represents reliance on a participant, team, system,
+supplier, external condition, or other required outcome.
+
+Meeting Notes remain separate when a meeting or workshop creates
+information that requires a meeting record.
+
+Change Management is handled through the lifecycle and appropriate
+change artifacts rather than being mechanically added as another
+permanent section of the Analysis Register.
+
+## 8. Question-to-Decision Flow
+
+A material question follows a controlled path:
+
+``` text
+Question
+→ Classification
+→ Appropriate Stakeholder / Decision Owner
+→ Answer / Decision
+→ Persistence
+→ Artifact Update
+→ Traceability Review
+```
+
+Questions may represent missing specification detail, business or domain
+clarification, business or architecture decisions, implementation
+questions, security decisions, data ownership questions, operational
+constraints, or quality concerns.
+
+The answer must come from an appropriate source.
+
+A significant accepted answer must not remain only in transient
+communication or meeting memory when it affects analytical or delivery
+knowledge.
+
+## 9. Decision Propagation
 
 A decision is not complete when it is merely recorded.
 
-After an accepted decision, the analyst determines which artifacts are
-affected.
+After an accepted decision, the analyst determines which artifacts and
+delivery items are affected.
 
 Potentially affected areas include:
 
--   Business Requirements;
--   Functional Requirements;
--   Non-Functional Requirements;
--   Business Rules;
--   Scope;
--   processes and behavioral models;
--   Use Cases;
--   API or Event Contracts;
--   Error Model;
--   data models;
--   security requirements;
--   Acceptance Criteria;
--   Test Scenarios;
--   Jira backlog;
--   release documentation.
+- Business Requirements;
+- Functional Requirements;
+- Non-Functional Requirements;
+- Business Rules;
+- Scope;
+- processes and behavioral models;
+- Use Cases;
+- architecture views;
+- API or Event Contracts;
+- Error Model;
+- data models;
+- security requirements;
+- Acceptance Criteria;
+- Test Scenarios;
+- Jira backlog;
+- operational requirements;
+- release documentation.
 
-The analyst updates the relevant artifacts and verifies that no
-contradictory baseline remains.
+The analyst updates relevant artifacts and verifies that contradictory
+information does not remain active.
 
-## 8. Traceability
+## 10. Traceability
 
-Traceability connects business intent to implementation-verifiable
+Traceability connects business intent to specified and verifiable
 behavior.
 
-Depending on the case, traceability may include relationships such as:
+``` text
+Business Problem / Goal
+→ Business Requirement
+→ Functional / Non-Functional Requirement
+→ Business Rule
+→ Process / Use Case / Behavior
+→ System Interaction
+→ API / Event Contract
+→ Data
+→ Acceptance Criteria
+→ Test Scenario
+→ Jira Delivery Item
+→ Change Impact
+```
 
-**Business Goal → Business Requirement → Functional Requirement →
-Business Rule → Process / Use Case → Contract / Data → Acceptance
-Criteria → Test Scenario**
+Not every chain requires every artifact type.
 
-Not every artifact requires a link to every other artifact. Traceability
-should be meaningful and sufficient to answer:
+Traceability should be sufficient to answer why a requirement exists,
+which decision or rule supports it, which specification is affected, how
+behavior is verified, which delivery item implements it, and what is
+affected if the source information changes.
 
--   Why does this requirement exist?
--   Which business decision or rule supports it?
--   Which specification implements or constrains it?
--   How is the expected behavior verified?
--   What is affected if it changes?
+Traceability must reflect real dependencies rather than artificial
+one-to-one linking.
 
-## 9. Change Management
+## 11. Change Management
 
-Accepted baselines are not modified silently.
+Accepted analytical knowledge is not changed silently.
 
 When a meaningful change appears:
 
-1.  capture the Change Request or production feedback;
-2.  identify the decision owner;
-3.  determine whether the change is approved, rejected, or deferred;
-4.  perform Impact Analysis;
-5.  identify affected requirements, rules, processes, architecture,
-    contracts, data, tests, monitoring, and backlog items;
-6.  update affected artifacts after approval;
-7.  update traceability and Change Log;
-8.  establish a new accepted baseline where appropriate.
+1.  capture the Change Request, production feedback, or other change
+    source;
+2.  identify the appropriate Decision Owner;
+3.  determine whether the change is accepted, rejected, deferred, or
+    requires clarification;
+4.  perform Change Impact Analysis;
+5.  identify affected requirements, Business Rules, processes,
+    architecture views, contracts, data, security, tests, monitoring,
+    dependencies, and backlog items;
+6.  update affected artifacts after the necessary decision;
+7.  update traceability;
+8.  verify cross-artifact consistency;
+9.  establish the resulting analytical state.
 
-A change to one artifact is treated as a trigger to inspect dependent
-artifacts.
+A change to one artifact is a trigger to inspect its actual
+dependencies.
 
-## 10. Artifact Creation Rule
+Each case should contain at least one meaningful change demonstrating
+cross-artifact Change Impact Analysis.
 
-Artifacts are created because they solve a concrete analytical problem.
+## 12. Artifact Creation Rule
 
-The Portfolio Artifact Coverage Matrix defines the expected emphasis for
-each case using:
+Artifacts exist because they solve concrete analytical problems.
 
--   Primary;
--   Supporting;
--   Not Used.
+The Portfolio Artifact Coverage Matrix defines expected emphasis using
+Primary, Supporting, and Not Used.
 
-The matrix is a scope-control baseline, not a requirement to produce
-documents mechanically.
+The matrix is a scope-control baseline, not a mechanical production
+checklist.
 
-An artifact classified as Not Used may be introduced only when the
-analysis establishes a concrete need. The reason and downstream impact
-should be explicit.
+> **Analytical Need → Justified Artifact → Appropriate Depth → Traceable
+> Value**
 
-No artifact should exist solely to increase portfolio size.
+An artifact is justified when it meaningfully supports clarification,
+communication, decision-making, behavioral modeling, specification,
+consistency, verification, delivery, release readiness, or change
+analysis.
 
-## 11. Manual First, Automation Second
+An artifact must not exist solely to increase Portfolio size,
+demonstrate a tool, fill a pre-created folder, satisfy a template, or
+reproduce information already owned elsewhere.
+
+An artifact classified as `Not Used` may be introduced if analysis
+establishes a concrete need and its impact is understood.
+
+## 13. Tool Selection Rule
+
+Tool selection is driven by analytical need.
+
+``` text
+Discovery / Requirements
+→ Confluence + Jira
+
+Process Modeling
+→ Camunda Modeler / BPMN
+
+UML / C4 / ERD
+→ PlantUML / draw.io
+
+REST API
+→ OpenAPI + Bruno / Postman
+
+Relational Data
+→ PostgreSQL + DBeaver
+
+Event-Driven Integration
+→ Kafka + Kafka UI + AsyncAPI
+
+Cache
+→ Redis + Redis Insight
+
+Document Persistence
+→ MongoDB + MongoDB Compass
+
+Portfolio Versioning
+→ Git + GitHub
+
+Repeatable Analytical Operations
+→ Python when automation is justified
+```
+
+A technology must not be introduced merely because it is installed or
+because the Portfolio aims to demonstrate broad tooling.
+
+## 14. Manual First, Automation Second
 
 Analytical semantics and workflow are established manually before
 automation is introduced.
 
-Automation may be added when:
+``` text
+Understand Manually
+→ Perform Manually
+→ Verify Semantics
+→ Identify Repetition / Risk / Inefficiency
+→ Automate When Useful
+```
 
--   the manual process is understood;
--   the inputs and outputs are stable enough to define;
--   repeated work creates a meaningful automation opportunity;
--   automation does not obscure analytical reasoning or decision
-    ownership.
+Automation may be added when the manual process is understood, inputs
+and outputs are sufficiently stable, repeated work creates a meaningful
+opportunity, and automation improves quality, speed, repeatability, or
+consistency without obscuring analytical reasoning or Decision
+Ownership.
 
 Python and other automation tools support the analytical workflow; they
-do not replace analysis.
+do not replace analysis or specialized professional tools.
 
-The portfolio remains separate from NovaMarket Toolkit and must not
-evolve into another general-purpose analytical platform.
+## 15. Review and Acceptance Discipline
 
-## 12. Review and Baseline Discipline
+Analytical content is reviewed at a level appropriate to its impact.
 
-Before analytical content becomes an accepted baseline, it should be
-reviewed at a level appropriate to its impact.
-
-Review may involve:
-
--   Product Owner for business intent and scope;
--   Domain SME for domain correctness;
--   Solution Architect for architecture and boundaries;
--   Developers or Tech Lead for implementability;
--   DBA/Data Engineer for data concerns;
--   Security for security requirements;
--   QA for testability and expected behavior;
--   Operations/SRE for operational requirements.
+Review may involve Product Owner / Business Owner, Domain SME, Solution
+Architect, Developers / Tech Lead, DBA / Data Engineer, Security, QA,
+and Operations / SRE according to their responsibilities.
 
 The analyst coordinates review and incorporates accepted outcomes.
 
-A Git commit or merge represents a meaningful versioned state; it must
-not be treated as a substitute for stakeholder approval where
-stakeholder approval is required.
+Acceptance is determined by the appropriate owner or review process, not
+by the storage platform.
 
-## 13. Operational Working Loop
+A Confluence page, Jira status, Git commit, merge, or tag must not be
+treated as a substitute for stakeholder approval where stakeholder
+approval is required.
 
-The Working Model is expressed as a controlled operational loop:
+## 16. Execution Efficiency Rule
 
-**Known Information → Open Question → Classification → Decision Owner →
-Accepted Answer / Decision → Persistence → Artifact Update →
-Traceability Review → Accepted Baseline → Feedback / Change**
+> **Do not stop case progression to perfect infrastructure, templates,
+> folder structures, governance mechanisms, or formatting when the
+> current state is already sufficient for professional analytical
+> work.**
 
-Feedback or change may reopen questions, require a new decision, or
-trigger Change Impact Analysis across dependent artifacts.
+Prefer meaningful analytical increments:
 
-This loop complements rather than duplicates the Analyst Delivery
-Lifecycle. The lifecycle determines the stage of work; the Working Model
-determines how analytical knowledge moves from uncertainty to an
-accepted, traceable baseline within and across those stages.
+``` text
+Lifecycle Stage
+→ Stakeholder Interaction
+→ Analysis
+→ Related Analytical Outcomes
+→ Necessary Artifact Updates
+→ Verification
+→ Next Meaningful Step
+```
+
+Avoid fragmentation such as:
+
+``` text
+One Small Question
+→ Separate Governance Discussion
+→ Template Redesign
+→ New Empty Artifact
+→ Separate Git Ceremony
+→ Next Small Question
+```
+
+Efficiency rules:
+
+- combine related analytical actions belonging to the same meaningful
+  increment;
+- do not create empty folders or pages in anticipation of future work;
+- do not create templates before a real use case requires them;
+- do not polish professionally sufficient wording through unnecessary
+  iterations;
+- do not perform Git ceremony after every minor edit;
+- do not introduce integrations without an immediate need;
+- do not repeat accepted Portfolio rules unless new evidence requires a
+  change;
+- move to the next analytical step after sufficient verification.
+
+Speed does not justify invented requirements, undocumented assumptions,
+incorrect Decision Ownership, weak traceability, contradictory
+artifacts, semantically incorrect models, or artificial use of
+technologies.
+
+## 17. Operational Working Loop
+
+``` text
+Incomplete Context
+        ↓
+Known vs Unknown
+        ↓
+Current Lifecycle Stage
+        ↓
+Analyst Objective
+        ↓
+Stakeholder / Decision Owner
+        ↓
+Question
+        ↓
+Answer / Decision
+        ↓
+Classification
+        ↓
+Persistence
+        ↓
+Justified Artifact Update
+        ↓
+Traceability / Consistency Review
+        ↓
+Practical Verification
+        ↓
+Next Meaningful Step
+        ↓
+Feedback / Change
+        ↺
+```
+
+Feedback or change may reopen questions, invalidate assumptions, require
+a new decision, or trigger Change Impact Analysis.
+
+The Working Model complements rather than duplicates the Analyst
+Delivery Lifecycle:
+
+- the lifecycle determines the stage of work;
+- the Working Model determines how analytical knowledge moves through
+  that stage;
 
 The quality target is not maximum documentation volume.
 
 The target is:
 
-**Analytical Decision + Traceable Requirement + Verifiable Contract +
-Clear Team Workflow + Controlled Change Impact.**
+> **Analytical Decision + Traceable Requirement + Verifiable
+> Specification + Clear Delivery Workflow + Controlled Change Impact**
+
+## 18. Operating Principles
+
+1.  **Progressive disclosure over invented completeness.**
+2.  **Explicit Decision Ownership over analyst overreach.**
+3.  **Analytical need over artifact checklist.**
+4.  **Single responsibility over duplicated management documentation.**
+5.  **Purpose-driven persistence over copying information between
+    tools.**
+6.  **Traceability over isolated artifacts.**
+7.  **Manual understanding over premature automation.**
+8.  **Demand-driven tooling over technology demonstration.**
+9.  **Meaningful analytical increments over process ceremony.**
+10. **Speed without sacrificing semantic quality.**

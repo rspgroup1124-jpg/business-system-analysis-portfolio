@@ -29,7 +29,7 @@ The cases intentionally differ in analytical emphasis. They are not
 expected to contain identical artifact sets or use the same
 technologies.
 
-## Case 1 --- Omnichannel Delivery & Pickup
+## Case 1 — Omnichannel Delivery & Pickup
 
 ### Analytical Profile
 
@@ -39,21 +39,21 @@ a consistent, development-ready system specification.
 
 The case emphasizes:
 
--   initiative and business context;
--   stakeholder analysis;
--   scope definition;
--   discovery and domain clarification;
--   Business and Functional Requirements;
--   Business Rules;
--   User Stories and Acceptance Criteria;
--   AS-IS / TO-BE analysis;
--   BPMN and behavioral modeling;
--   Use Cases and Use Case Diagram;
--   system context and integrations;
--   REST API specification;
--   relational data modeling;
--   security and failure scenarios;
--   testability, traceability, release readiness, and change impact.
+- initiative and business context;
+- stakeholder analysis;
+- scope definition;
+- discovery and domain clarification;
+- Business and Functional Requirements;
+- Business Rules;
+- User Stories and Acceptance Criteria;
+- AS-IS / TO-BE analysis;
+- BPMN and behavioral modeling;
+- Use Cases and Use Case Diagram;
+- system context and integrations;
+- REST API specification;
+- conceptual and logical relational data modeling;
+- security and failure scenarios;
+- testability, traceability, release readiness, and change impact.
 
 ### Analytical Objective
 
@@ -64,7 +64,7 @@ specifications, data definitions, and verification criteria.
 Case 1 establishes the broad end-to-end analytical workflow used
 throughout the portfolio.
 
-## Case 2 --- Distributed Order & Fulfillment Platform
+## Case 2 — Distributed Order & Fulfillment Platform
 
 ### Analytical Profile
 
@@ -74,25 +74,24 @@ communication.
 
 The case emphasizes:
 
--   Functional and Non-Functional Requirements;
--   service and system boundaries;
--   C4 views;
--   synchronous and asynchronous integrations;
--   REST and event contracts;
--   OpenAPI and AsyncAPI;
--   JSON Schema;
--   Error Model;
--   Event Catalog;
--   Producer / Consumer relationships;
--   topic and partition strategy;
--   state transitions;
--   saga and compensation;
--   idempotency, retry, DLQ, and replay;
--   data ownership;
--   cache and NoSQL decisions;
--   security, auditability, SLA/SLO, and observability;
--   failure scenarios, verification, traceability, and release
-    readiness.
+- Functional and Non-Functional Requirements;
+- service and system boundaries;
+- C4 views;
+- synchronous and asynchronous integrations;
+- REST and event contracts;
+- OpenAPI and AsyncAPI;
+- JSON Schema;
+- Error Model;
+- Event Catalog;
+- Producer / Consumer relationships;
+- topic and partition strategy;
+- state transitions;
+- saga and compensation;
+- idempotency, retry, DLQ, and replay;
+- data ownership;
+- cache and NoSQL decisions;
+- security, auditability, SLA/SLO, and observability;
+- failure scenarios, verification, traceability, and release readiness.
 
 ### Analytical Objective
 
@@ -103,7 +102,7 @@ operational constraints.
 
 Case 2 deepens the system and integration analysis introduced in Case 1.
 
-## Case 3 --- Returns, Refunds & Claims Management
+## Case 3 — Returns, Refunds & Claims Management
 
 ### Analytical Profile
 
@@ -113,23 +112,23 @@ auditability, and human decisions.
 
 The case emphasizes:
 
--   business context and stakeholder analysis;
--   scope and Business Requirements;
--   Functional Requirements and Business Rules;
--   AS-IS / TO-BE process analysis;
--   BPMN;
--   decision tables;
--   state modeling;
--   responsibility and RACI analysis;
--   roles, permissions, and RBAC;
--   integration and error behavior;
--   relational data and DDL;
--   security and audit trail;
--   SLA/SLO and observability;
--   exception scenarios;
--   Acceptance Criteria;
--   Test and UAT Scenarios;
--   traceability and Change Impact Analysis.
+- business context and stakeholder analysis;
+- scope and Business Requirements;
+- Functional Requirements and Business Rules;
+- AS-IS / TO-BE process analysis;
+- BPMN;
+- decision tables;
+- state modeling;
+- responsibility and RACI analysis;
+- roles, permissions, and RBAC;
+- integration and error behavior;
+- conceptual and logical relational data modeling;
+- security and audit trail;
+- SLA/SLO and observability;
+- exception scenarios;
+- Acceptance Criteria;
+- Test and UAT Scenarios;
+- traceability and Change Impact Analysis.
 
 ### Analytical Objective
 
@@ -143,43 +142,43 @@ Case 3 deepens process, rule, governance, and human-workflow analysis.
 
 The cases are deliberately complementary.
 
-### Case 1 --- End-to-End Analysis
+### Case 1 — End-to-End Analysis
 
 Primary emphasis:
 
--   discovery;
--   requirements;
--   process and behavioral analysis;
--   system specification;
--   REST integration;
--   relational data;
--   traceability;
--   delivery support.
+- discovery;
+- requirements;
+- process and behavioral analysis;
+- system specification;
+- REST integration;
+- relational data;
+- traceability;
+- delivery support.
 
-### Case 2 --- Distributed System Analysis
-
-Primary emphasis:
-
--   system boundaries;
--   microservices;
--   event-driven integration;
--   asynchronous contracts;
--   resilience;
--   data ownership;
--   operational quality.
-
-### Case 3 --- Enterprise Process and Rules
+### Case 2 — Distributed System Analysis
 
 Primary emphasis:
 
--   complex workflows;
--   business rules;
--   decisions;
--   states;
--   roles and permissions;
--   auditability;
--   exception handling;
--   human/system interaction.
+- system boundaries;
+- microservices;
+- event-driven integration;
+- asynchronous contracts;
+- resilience;
+- data ownership;
+- operational quality.
+
+### Case 3 — Enterprise Process and Rules
+
+Primary emphasis:
+
+- complex workflows;
+- business rules;
+- decisions;
+- states;
+- roles and permissions;
+- auditability;
+- exception handling;
+- human/system interaction.
 
 This separation prevents unnecessary duplication and allows each case to
 explore its primary analytical problem in sufficient depth.
@@ -205,11 +204,16 @@ data, or operational decisions that belong to other roles.
 
 ### Controlled Persistence
 
-The portfolio uses the following persistence model:
+The portfolio uses the following responsibility model:
 
--   **Jira** --- delivery state;
--   **Confluence** --- evolving collaborative knowledge;
--   **Git** --- durable accepted analytical baseline.
+- **Jira** — Delivery Management;
+- **Confluence** — Working Analytical Knowledge;
+- **Git / GitHub** — Portfolio files, version history, and milestones.
+
+The location of information does not determine whether a business,
+architecture, security, data, operational, or other decision has been
+accepted. Acceptance remains with the appropriate Decision Owner and
+review process.
 
 ### Traceability and Change Propagation
 
@@ -247,13 +251,21 @@ The portfolio does not use an artifact checklist.
 Artifact selection is controlled by `ARTIFACT_COVERAGE_MATRIX.md`, which
 classifies artifacts for each case as:
 
--   **Primary** --- central to the case;
--   **Supporting** --- used when it materially supports the analysis;
--   **Not Used** --- excluded from the planned scope because it does not
-    currently provide sufficient analytical value.
+- **Primary** — central to the case and expected in meaningful
+  professional depth;
+- **Supporting** — within justified scope but created only when a
+  concrete analytical need emerges;
+- **Not Used** — outside the planned scope because it does not currently
+  provide sufficient analytical value.
 
-A `Not Used` artifact may be introduced later only when a concrete
-analytical need is established and the scope impact is understood.
+`Supporting` does not mean that a reduced or simplified version must be
+created automatically.
+
+`Primary` does not require premature artifact creation before sufficient
+analytical information exists.
+
+A `Not Used` artifact may be introduced later when a concrete analytical
+need is established and the scope impact is understood.
 
 ## Tooling Strategy
 
@@ -261,23 +273,24 @@ Tools are selected by analytical need rather than technology coverage.
 
 The portfolio workstation includes tools for:
 
--   repository and source-controlled documentation;
--   collaboration and delivery management;
--   process and system modeling;
--   API and event specification;
--   API verification;
--   relational and non-relational data analysis;
--   messaging and cache analysis;
--   reproducible local infrastructure;
--   justified analytical automation.
+- Portfolio repository and file-based versioning;
+- collaboration and delivery management;
+- process and system modeling;
+- API and event specification;
+- API verification;
+- relational and non-relational data analysis;
+- messaging and cache analysis;
+- reproducible local infrastructure;
+- justified analytical automation.
 
 A tool should produce a meaningful artifact, decision, or reproducible
 verification result.
 
 ## Localization Strategy
 
-Repository-level public and governance documents are maintained in
-English.
+Repository-level documentation may be maintained in English when its
+primary purpose is repository navigation, portfolio-level governance, or
+external presentation.
 
 Case-level analytical content is primarily written in natural
 professional Russian.
@@ -289,31 +302,19 @@ remain canonical and English-based.
 Localization must not create artificial mixed-language phrasing or
 change analytical meaning.
 
-## Relationship to NovaMarket Toolkit
-
-This portfolio is an independent project.
-
-NovaMarket Toolkit may be evaluated later as an external analytical tool
-only after relevant workflows have been established manually and its use
-provides concrete value.
-
-The portfolio must not be shaped around NovaMarket Toolkit capabilities,
-and NovaMarket Toolkit is not the implementation target of the case
-studies.
-
 ## Portfolio Outcome
 
 The portfolio should provide evidence of a controlled professional
 analytical process in which:
 
--   incomplete information is progressively clarified;
--   decisions have explicit owners;
--   requirements are traceable to business intent;
--   models and contracts remain semantically consistent;
--   technical specifications are verifiable;
--   tools are used for concrete analytical purposes;
--   changes are assessed across affected artifacts;
--   accepted analytical states are version-controlled.
+- incomplete information is progressively clarified;
+- decisions have explicit owners;
+- requirements are traceable to business intent;
+- models and contracts remain semantically consistent;
+- technical specifications are verifiable;
+- tools are selected and used for concrete analytical purposes;
+- changes are assessed across affected artifacts;
+- file-based Portfolio artifacts have controlled version history.
 
 The governing principle is:
 

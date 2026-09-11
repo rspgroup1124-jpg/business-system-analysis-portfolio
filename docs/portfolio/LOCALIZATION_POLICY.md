@@ -19,24 +19,24 @@ Analytical content should read as natural professional Russian.
 English terminology is retained selectively, not automatically. It is
 appropriate when a term is:
 
--   the established name of a role or artifact;
--   the name of a standard, technology, protocol, or product;
--   a stable professional term whose translation would reduce precision
-    or sound unnatural;
--   a machine-readable construct;
--   a technical identifier.
+- the established name of a role or artifact;
+- the name of a standard, technology, protocol, or product;
+- a stable professional term whose translation would reduce precision or
+  sound unnatural;
+- a machine-readable construct;
+- a technical identifier.
 
 If a concept has a clear, natural, and unambiguous Russian equivalent,
 the Russian form should normally be used in analytical prose.
 
 For example:
 
--   delivery option → способ доставки;
--   checkout → оформление заказа;
--   pickup point → пункт выдачи;
--   delivery address → адрес доставки;
--   payment method → способ оплаты;
--   order status → статус заказа.
+- delivery option → способ доставки;
+- checkout → оформление заказа;
+- pickup point → пункт выдачи;
+- delivery address → адрес доставки;
+- payment method → способ оплаты;
+- order status → статус заказа.
 
 The objective is semantic consistency and readability, not maximum
 preservation of English vocabulary.
@@ -48,20 +48,20 @@ Russian.
 
 This includes, where applicable:
 
--   Business Requirements;
--   Functional Requirements;
--   Non-Functional Requirements;
--   Business Rules;
--   Acceptance Criteria;
--   process descriptions;
--   scenario descriptions;
--   meeting and workshop notes;
--   decision rationale;
--   assumptions;
--   constraints;
--   risks;
--   dependencies;
--   change-impact explanations.
+- Business Requirements;
+- Functional Requirements;
+- Non-Functional Requirements;
+- Business Rules;
+- Acceptance Criteria;
+- process descriptions;
+- scenario descriptions;
+- meeting and workshop notes;
+- decision rationale;
+- assumptions;
+- constraints;
+- risks;
+- dependencies;
+- change-impact explanations.
 
 Example:
 
@@ -78,20 +78,20 @@ established and useful for precise communication.
 
 Examples may include:
 
--   Product Owner;
--   System Analyst;
--   Stakeholder;
--   Discovery;
--   Scope;
--   User Story;
--   Acceptance Criteria;
--   Change Request;
--   Impact Analysis;
--   API;
--   endpoint;
--   payload;
--   retry;
--   DLQ.
+- Product Owner;
+- System Analyst;
+- Stakeholder;
+- Discovery;
+- Scope;
+- User Story;
+- Acceptance Criteria;
+- Change Request;
+- Impact Analysis;
+- API;
+- endpoint;
+- payload;
+- retry;
+- DLQ.
 
 This is not a mandatory English-term list. Context and readability take
 precedence.
@@ -115,12 +115,12 @@ Russian where translation preserves meaning and improves readability.
 
 For example:
 
--   User Story;
--   Product Owner;
--   OpenAPI;
--   AsyncAPI;
--   BPMN;
--   Jira Story.
+- User Story;
+- Product Owner;
+- OpenAPI;
+- AsyncAPI;
+- BPMN;
+- Jira Story.
 
 The content inside the artifact may still be Russian.
 
@@ -144,15 +144,15 @@ Standard syntax is not localized.
 
 This includes:
 
--   PlantUML syntax;
--   Mermaid syntax where used;
--   OpenAPI keywords;
--   AsyncAPI keywords;
--   JSON and JSON Schema keywords;
--   SQL syntax;
--   HTTP methods and status codes;
--   BPMN element types where required by the notation or tool;
--   machine-readable configuration and contract syntax.
+- PlantUML syntax;
+- Mermaid syntax where used;
+- OpenAPI keywords;
+- AsyncAPI keywords;
+- JSON and JSON Schema keywords;
+- SQL syntax;
+- HTTP methods and status codes;
+- BPMN element types where required by the notation or tool;
+- machine-readable configuration and contract syntax.
 
 Examples:
 
@@ -185,24 +185,24 @@ appropriate to their technical context.
 
 Examples:
 
--   `delivery_option`;
--   `pickup_point_id`;
--   `order_id`;
--   `DeliveryOption`;
--   `OrderCreated`;
--   `DELIVERY_NOT_AVAILABLE`;
--   `GET /delivery-options`.
+- `delivery_option`;
+- `pickup_point_id`;
+- `order_id`;
+- `DeliveryOption`;
+- `OrderCreated`;
+- `DELIVERY_NOT_AVAILABLE`;
+- `GET /delivery-options`.
 
 This rule applies to:
 
--   API paths;
--   schema properties;
--   database tables and columns;
--   event names;
--   message fields;
--   error codes;
--   service and component identifiers;
--   code-facing names.
+- API paths;
+- schema properties;
+- database tables and columns;
+- event names;
+- message fields;
+- error codes;
+- service and component identifiers;
+- code-facing names.
 
 Cyrillic identifiers are not used in technical contracts.
 
@@ -217,10 +217,10 @@ Diagram localization depends on the semantic role of each element.
 
 General rule:
 
--   canonical notation and syntax → standard English syntax;
--   business-facing labels → Russian where appropriate;
--   technical component names → English;
--   technical identifiers → English.
+- canonical notation and syntax → standard English syntax;
+- business-facing labels → Russian where appropriate;
+- technical component names → English;
+- technical identifiers → English.
 
 Business labels should remain readable to the target team without
 changing the semantics of the notation.
@@ -268,24 +268,24 @@ English terms are retained where they represent established professional
 concepts, artifact names, technologies, standards, or technical
 identifiers.
 
-The same terminology rules used in accepted Git baselines should be
-applied to evolving Confluence content to reduce semantic drift.
+The same terminology rules should be applied consistently across
+Confluence and related analytical artifacts to reduce semantic drift.
 
-## 10. Git and Public Portfolio Layer
+## 10. Repository-Level Documentation
 
-Repository-level public and governance documents may be maintained in
-English when their primary purpose is external portfolio presentation or
-repository navigation.
+Repository-level documentation may be maintained in English when its
+primary purpose is repository navigation, portfolio-level governance, or
+external presentation.
 
 This includes the current portfolio-level baseline documents such as:
 
--   root `README.md`;
--   `PORTFOLIO_OVERVIEW.md`;
--   `ARTIFACT_COVERAGE_MATRIX.md`;
--   `ANALYST_DELIVERY_LIFECYCLE.md`;
--   `WORKING_MODEL.md`;
--   `LOCALIZATION_POLICY.md`;
--   `TOOLING_BASELINE.md`.
+- root `README.md`;
+- `PORTFOLIO_OVERVIEW.md`;
+- `ARTIFACT_COVERAGE_MATRIX.md`;
+- `ANALYST_DELIVERY_LIFECYCLE.md`;
+- `WORKING_MODEL.md`;
+- `LOCALIZATION_POLICY.md`;
+- `TOOLING_BASELINE.md`.
 
 Case-level analytical content is primarily Russian unless the artifact
 itself requires standard English syntax or technical identifiers.
@@ -305,17 +305,17 @@ A case Glossary defines what domain terms mean in that specific context.
 When a domain term has been normalized in the Glossary, the approved
 term should be used consistently across:
 
--   requirements;
--   Business Rules;
--   processes;
--   diagrams;
--   API descriptions;
--   data models;
--   Acceptance Criteria;
--   test scenarios;
--   Jira;
--   Confluence;
--   Git baselines.
+- requirements;
+- Business Rules;
+- processes;
+- diagrams;
+- API descriptions;
+- data models;
+- Acceptance Criteria;
+- test scenarios;
+- Jira;
+- Confluence;
+- file-based analytical artifacts.
 
 Terminology changes should trigger review of affected artifacts when
 they may alter meaning or create ambiguity.
