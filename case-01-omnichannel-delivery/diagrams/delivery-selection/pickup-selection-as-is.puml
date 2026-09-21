@@ -1,0 +1,36 @@
+@startuml
+title Pickup Selection — AS-IS
+
+start
+
+:Open company-operated
+pickup location selector;
+
+if (Pickup location selected?) then (Yes)
+
+    :Save selected pickup location;
+    :Confirm Pickup as
+    delivery method;
+
+else (No)
+
+    :Close pickup selector;
+
+    if (Previous valid delivery
+selection exists?) then (Yes)
+
+    :Preserve previous
+    delivery selection;
+
+else (No)
+
+    :No confirmed
+    delivery method;
+
+endif
+
+endif
+
+stop
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+title Current Delivery Selection Flow — AS-IS Overview
+
+start
+
+:Enter Delivery step;
+:Calculate delivery availability;
+:Display available delivery options;
+:Select delivery option;
+
+if (Delivery option?) then (Courier)
+    :Confirm Courier;
+else (Pickup)
+    :Handle Pickup Selection;
+endif
+
+:Confirm delivery selection;
+:Handle Delivery Changes;
+:Continue Checkout;
+:Proceed to Payment;
+
+stop
+
+@enduml

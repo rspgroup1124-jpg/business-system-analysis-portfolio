@@ -1,0 +1,32 @@
+@startuml
+title Delivery Changes — AS-IS
+
+start
+
+:Delivery-affecting data changed;
+
+:Request delivery
+availability recalculation;
+
+:Recalculate delivery
+availability;
+
+if (Previous delivery selection
+remains valid?) then (Yes)
+
+    :Preserve current
+    delivery selection;
+
+else (No)
+
+    :Invalidate previous
+    delivery selection;
+
+    :Require delivery method
+    selection or confirmation;
+
+endif
+
+stop
+
+@enduml
